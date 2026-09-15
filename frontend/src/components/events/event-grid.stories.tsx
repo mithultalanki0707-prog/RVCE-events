@@ -1,20 +1,43 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import { EventGrid } from "./event-grid";
 
 const meta = {
   title: "Events/EventGrid",
   component: EventGrid,
   tags: ["autodocs"],
-  decorators: [
-    (Story) => (
-      <div className="min-h-screen bg-[var(--bg-cobalt)] p-6 sm:p-10">
+ decorators: [
+  (Story) => (
+    <div className="min-h-screen bg-[var(--bg-cobalt)] px-6 py-12 sm:px-10 lg:px-16">
+      <div className="w-full">
+        <div className="mb-12 flex flex-col justify-between gap-6 border-b border-[var(--border-blush)] pb-8 sm:flex-row sm:items-end">
+          <div>
+            <p className="font-sans-editorial text-xs font-semibold tracking-[0.22em] text-[var(--text-blush-muted)]">
+              RVCE EVENTS / 2026
+            </p>
+
+            <h2 className="mt-4 font-aalto text-5xl leading-[0.85] text-[var(--text-blush)] sm:text-7xl">
+              UPCOMING
+              <br />
+              EVENTS
+            </h2>
+          </div>
+
+          <p className="max-w-xs text-sm leading-6 text-[var(--text-blush-muted)]">
+            Discover competitions, workshops, hackathons and experiences
+            happening across campus.
+          </p>
+        </div>
+
         <Story />
       </div>
-    ),
-  ],
+    </div>
+  ),
+],
 } satisfies Meta<typeof EventGrid>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const MultiCardGrid: Story = {
@@ -29,7 +52,8 @@ export const MultiCardGrid: Story = {
         category: "Hackathon",
         points: 20,
         price: "Free",
-        imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Hackathon event",
       },
       {
@@ -41,7 +65,8 @@ export const MultiCardGrid: Story = {
         category: "Workshop",
         points: 10,
         price: "₹150",
-        imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Workshop event",
       },
       {
@@ -54,7 +79,8 @@ export const MultiCardGrid: Story = {
         points: 5,
         price: "Free",
         status: "fast-filling",
-        imageUrl: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Sports event",
       },
       {
@@ -67,7 +93,8 @@ export const MultiCardGrid: Story = {
         points: 5,
         price: "Free",
         status: "sold-out",
-        imageUrl: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Cultural event",
       },
       {
@@ -79,7 +106,8 @@ export const MultiCardGrid: Story = {
         category: "Technical",
         points: 15,
         price: "₹100",
-        imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Cybersecurity workshop",
       },
       {
@@ -91,7 +119,8 @@ export const MultiCardGrid: Story = {
         category: "Cultural",
         points: 8,
         price: "Free",
-        imageUrl: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=1200&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=1200&q=80",
         imageAlt: "Photography contest",
       },
     ],
@@ -107,7 +136,8 @@ export const LoadingState: Story = {
 export const EmptyState: Story = {
   args: {
     events: [],
-    emptyStateTitle: "No events match your filters",
-    emptyStateDescription: "Try adjusting your search criteria or check back later.",
+    emptyStateTitle: "No events yet",
+    emptyStateDescription:
+      "New experiences are being prepared. Check back soon for upcoming RVCE events.",
   },
 };

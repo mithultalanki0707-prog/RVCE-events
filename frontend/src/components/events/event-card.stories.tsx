@@ -5,31 +5,42 @@ const meta = {
   title: "Events/EventCard",
   component: EventCard,
   tags: ["autodocs"],
+
   argTypes: {
     category: {
       control: "select",
-      options: ["Technical", "Cultural", "Sports", "Hackathon", "Workshop"],
+      options: [
+        "Technical",
+        "Cultural",
+        "Sports",
+        "Hackathon",
+        "Workshop",
+      ],
     },
+
     status: {
       control: "select",
       options: ["available", "fast-filling", "sold-out"],
     },
+
     onAction: {
       action: "action clicked",
     },
   },
+
   decorators: [
-    (Story) => (
-      <div className="flex min-h-[560px] items-center justify-center bg-[var(--bg-cobalt)] p-6 sm:p-10">
-        <div className="w-full max-w-sm">
-          <Story />
-        </div>
+  (Story) => (
+    <div className="flex min-h-screen items-center justify-center bg-[var(--bg-cobalt)] p-6 sm:p-10">
+      <div className="w-full max-w-[620px]">
+        <Story />
       </div>
-    ),
-  ],
+    </div>
+  ),
+],
 } satisfies Meta<typeof EventCard>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const FreeEvent: Story = {
@@ -42,9 +53,12 @@ export const FreeEvent: Story = {
     category: "Hackathon",
     points: 20,
     price: "Free",
+
     imageUrl:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Students collaborating on laptops during a hackathon",
+
+    imageAlt:
+      "Students collaborating on laptops during a hackathon",
   },
 };
 
@@ -58,9 +72,12 @@ export const PaidEvent: Story = {
     category: "Workshop",
     points: 10,
     price: "₹150",
+
     imageUrl:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Developer working on a laptop during a web development workshop",
+
+    imageAlt:
+      "Developer working on a laptop during a web development workshop",
   },
 };
 
@@ -75,9 +92,12 @@ export const FastFilling: Story = {
     points: 5,
     price: "Free",
     status: "fast-filling",
+
     imageUrl:
       "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Football players competing on a field",
+
+    imageAlt:
+      "Football players competing on a field",
   },
 };
 
@@ -92,24 +112,15 @@ export const SoldOut: Story = {
     points: 5,
     price: "Free",
     status: "sold-out",
+
     imageUrl:
       "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Crowd watching a live cultural music performance",
+
+    imageAlt:
+      "Crowd watching a live cultural music performance",
   },
 };
 
 export const Loading: Story = {
-  args: {
-    title: "Loading event",
-    club: "Loading organiser",
-    date: "Loading date",
-    time: "Loading time",
-    venue: "Loading venue",
-    category: "Technical",
-    points: 0,
-    price: "Free",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
-  },
   render: () => <EventCardSkeleton />,
 };
